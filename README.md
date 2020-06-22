@@ -1,4 +1,4 @@
-# vuejs-project-1
+# funcards-frontend
 
 ## Project setup
 ```

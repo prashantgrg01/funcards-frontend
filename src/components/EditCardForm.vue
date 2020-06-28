@@ -86,7 +86,7 @@ export default {
       };
       // Post the updated card to the server
       await this.updateCard(updated_card)
-      .then( () => {
+      .then(() => {
         // Hide the spinner and update the status and status message for successfully updating the card
         this.loading = false;
         this.updateCardStatusMessage = "Success! Card updated.";

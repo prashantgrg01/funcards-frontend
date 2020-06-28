@@ -15,7 +15,7 @@
         </ul>
         <h4 class="card-subtitle">Example Code:</h4>
         <code class="card-codes">{{ card.example_code }}</code>
-        <div class="card-actions">
+        <div class="card-actions" v-if="userAuthenticated">
           <a v-bind:href="editLink"><ion-icon name="create"></ion-icon></a> | 
           <a href="#" v-on:click="deleteCard(card._id)"><ion-icon name="trash"></ion-icon></a>
         </div>
@@ -25,17 +25,18 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "Card",
-  components: {
-  },
   props: ["card"],
-  data: function () {
+  data: function() {
     return {
       editLink: "/edit-card/"+this.card._id
     }
+  },
+  computed: {
+    ...mapGetters(["userAuthenticated"])
   },
   methods: {
     ...mapActions(["deleteCard"])

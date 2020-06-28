@@ -13,7 +13,7 @@
         </button>
       </div>
       <!-- New Card Post Form  -->
-      <form method="POST" action="#" v-on:submit="onFormSubmit">
+      <form method="POST" action="#" v-on:submit.prevent="onFormSubmit">
         <input class="form-control mb-3" type="text" name="title" v-model="title" placeholder="New Card Title" required />
         <input class="form-control mb-3" type="text" name="function_name" v-model="function_name" placeholder="Function Name" required />
         <textarea class="form-control mb-3" name="description" v-model="description" placeholder="Function Description" required>
@@ -63,8 +63,7 @@ export default {
       this.example_code = "";
     },
     // Handles the submission of the new card form
-    onFormSubmit: async function(e) {
-      e.preventDefault();
+    onFormSubmit: async function() {
       // Show the spinner
       this.loading = true;
       // Create a new card object

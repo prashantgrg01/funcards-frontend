@@ -2,17 +2,18 @@
   <header class="app-header">
     <h1 class="app-title">FunCards</h1>
     <p class="app-tagline">a great way of learning WordPress functions using cards</p>
-    <nav class="main-navigation d-flex justify-content-center align-items-center">
-      <router-link to="/">Home</router-link>
-      <router-link to="/about">About</router-link>
-      <router-link to="/login">Login</router-link>
-    </nav>
+    <Navigation />
   </header>
 </template>
 
 <script>
+import Navigation from "./Navigation";
+
 export default {
-  name: "Header"
+  name: "Header",
+  components: {
+    Navigation
+  }
 }
 </script>
 
@@ -30,13 +31,5 @@ export default {
   font-size: 1.1rem;
   text-align: center;
   font-style: italic;
-}
-.main-navigation a {
-  display: inline-block;
-  padding: 0rem 1rem;
-  border-right: 1px solid #333;
-}
-.main-navigation a:last-child {
-  border: none;
 }
 </style>

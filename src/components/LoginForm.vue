@@ -55,7 +55,11 @@ export default {
         // Hide the loading spinner and set the login error fields appropriately
         this.loading = false;
         this.loginError = true;
-        this.loginErrorMessage = err.message;
+        if (err.response) {
+          this.loginErrorMessage = err.response.data.error;
+        } else {
+          this.loginErrorMessage = err.message;
+        }
       });
     }
   }

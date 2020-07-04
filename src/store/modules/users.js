@@ -50,11 +50,21 @@ export default {
       }
     },
     async logoutUser(context) {
-      return axios.post("/users/logout").then(() => {
+      try {
+        await axios.post("/users/logout");
         // Reset the access token and current user
         context.commit("SET_ACCESS_TOKEN", null);
         context.commit("SET_CURRENT_USER", null);
-      });
+      }
+      catch (err) {
+        // If there are any errors, log the appropriate error message to the console
+        if (err.response) {
+          console.log(err.response.data);
+        }
+        else {
+          console.log(err.message);
+        }
+      }
     }
   },
   getters: {

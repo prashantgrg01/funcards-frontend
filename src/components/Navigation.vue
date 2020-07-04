@@ -24,8 +24,12 @@ export default {
   methods: {
     ...mapActions(["logoutUser"]),
     logout() {
-      this.logoutUser().then(() => {
+      this.logoutUser()
+      .then(() => {
         this.$router.push({ name: "login" });
+      })
+      .catch(err => {
+        console.log(err.message);
       });
     }
   }
